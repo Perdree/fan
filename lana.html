@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta property="og:title" content="cosmin's knives">
+    <meta property="og:description" content="private bio hosting">
+    <meta property="og:url" content="ldr.bio">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#303135">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/cus.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&ampfamily=Roboto:wght@700&ampdisplay=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        #fullscreen-button {
+            z-index: 1;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        #new-button {
+            z-index: 1;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .cursor {
+        }
+    </style>
+    <title>Lana</title>
+</head>
+<body>
+    <video id="background-video" loop>
+        <source src="assets/lanavid.mp4" type="video/mp4">
+    </video>
+
+    <div id="fullscreen-button">click >_<</div>
+    <div id="new-button">Listen Real Music</div>
+
+    <div class="cursor">
+        <div class="cursor__ball cursor__ball--big ">
+            <svg height="30" width="30">
+                <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            </svg>
+        </div>
+        
+        <div class="cursor__ball cursor__ball--small">
+            <svg height="10" width="10">
+                <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cursor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script>
+        var button = document.getElementById('fullscreen-button');
+        var newButton = document.getElementById('new-button');
+        var video = document.getElementById('background-video');
+        var audio = new Audio('assets/lana.mp3');
+
+        button.addEventListener('click', function() {
+            video.style.display = 'block';
+            video.play();
+            button.style.display = 'none';
+            newButton.style.display = 'block';
+        });
+
+        newButton.addEventListener('click', function() {
+            window.open('https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa', '_blank');
+        });
+    </script>
+</body>
+</html>
